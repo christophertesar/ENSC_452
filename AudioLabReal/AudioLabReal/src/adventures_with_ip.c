@@ -55,7 +55,7 @@ int main(void)
 void menu(){
 	u8 inp = 0x00;
 	u32 CntrlRegister;
-	int AUDIO_BUFFER_SIZE = 32679;
+	int AUDIO_BUFFER_SIZE = 220000;
 
 	/* Turn off all LEDs */
 	Xil_Out32(LED_BASE, 0);
@@ -94,7 +94,7 @@ void menu(){
 		break;
 	case 'r':
 		xil_printf("ENTERING RECORD OPERATION\r\n");
-		xil_printf("Press 'q' to return to the main menu\r\n");
+		xil_printf("Press 'q' to return to the main menu, Press 'p' to start playing\r\n");
 		u32* audio_storage_left = malloc(AUDIO_BUFFER_SIZE * 4);
 		u32* audio_storage_right = malloc(AUDIO_BUFFER_SIZE * 4);
 		record_stream(audio_storage_left, audio_storage_right, AUDIO_BUFFER_SIZE, 0);
