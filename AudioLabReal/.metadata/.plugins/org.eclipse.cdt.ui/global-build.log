@@ -1,6 +1,6 @@
 Nothing to build in platform 'design_1_wrapper'
 
-17:08:16 **** Incremental Build of configuration Debug for project AudioLabReal ****
+16:17:20 **** Incremental Build of configuration Debug for project AudioLabReal ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
@@ -8,7 +8,7 @@ a9-linaro-pre-build-step
 make --no-print-directory main-build
 'Building file: ../src/adventures_with_ip.c'
 'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adventures_with_ip.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/ctesar/Desktop/ENSC_452/ENSC_452/AudioLabReal/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/adventures_with_ip.d" -MT"src/adventures_with_ip.o" -o "src/adventures_with_ip.o" "../src/adventures_with_ip.c"
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adventures_with_ip.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/Christopher/Desktop/ENSC_452/AudioLabReal/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/adventures_with_ip.d" -MT"src/adventures_with_ip.o" -o "src/adventures_with_ip.o" "../src/adventures_with_ip.c"
 ../src/adventures_with_ip.c: In function 'menu':
 ../src/adventures_with_ip.c:75:2: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
    75 |  while (!XUartPs_IsReceiveData(UART_BASEADDR));
@@ -16,19 +16,22 @@ arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adventures_with_ip
 ../src/adventures_with_ip.c:76:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
    76 |     inp = XUartPs_ReadReg(UART_BASEADDR, XUARTPS_FIFO_OFFSET);
       |     ^~~
-../src/adventures_with_ip.c:100:3: warning: implicit declaration of function 'record_stream' [-Wimplicit-function-declaration]
-  100 |   record_stream(audio_storage_left, audio_storage_right, AUDIO_BUFFER_SIZE, 0);
+../src/adventures_with_ip.c:102:3: warning: implicit declaration of function 'record_stream' [-Wimplicit-function-declaration]
+  102 |   record_stream(audio_storage_left, audio_storage_right, AUDIO_BUFFER_SIZE, 0);
       |   ^~~~~~~~~~~~~
+../src/adventures_with_ip.c:106:3: warning: implicit declaration of function 'tone_stream' [-Wimplicit-function-declaration]
+  106 |   tone_stream();
+      |   ^~~~~~~~~~~
 'Finished building: ../src/adventures_with_ip.c'
 ' '
 'Building target: AudioLabReal.elf'
 'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/ctesar/Desktop/ENSC_452/ENSC_452/AudioLabReal/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "AudioLabReal.elf"  ./src/adventures_with_ip.o ./src/audio.o ./src/ip_functions.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/Users/Christopher/Desktop/ENSC_452/AudioLabReal/design_1_wrapper/export/design_1_wrapper/sw/design_1_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "AudioLabReal.elf"  ./src/adventures_with_ip.o ./src/audio.o ./src/ip_functions.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: AudioLabReal.elf'
 ' '
 'Invoking: ARM v7 Print Size'
 arm-none-eabi-size AudioLabReal.elf  |tee "AudioLabReal.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  34368	   2232	2111688	2148288	 20c7c0	AudioLabReal.elf
+  37472	   2232	8403144	8442848	 80d3e0	AudioLabReal.elf
 'Finished building: AudioLabReal.elf.size'
 ' '
